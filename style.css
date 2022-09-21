@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); 
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
+
+
+:root {
+    --dark-blue: hsl(213, 84%, 24%);
+    --dark-blue-hover: hsl(213, 84%, 20%);
+    --light-blue: hsl(227, 60%, 97%);
+    --light-blue-hover: hsl(227, 60%, 93%);
+    --gray: #495057;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Press Start 2P';
+}
+
+body {
+    background: var(--light-blue);
+    /* padding: 15px; */
+}
+
+header {
+    /* background: rgba(0, 0, 0, 0.603); */
+    height: 80px;
+    padding: 15px;
+    background: var(--gray);
+}
+header>a {
+    margin: 25px 0 0 5vw;
+    /* float: left; */
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+main button {
+    padding: 24px;
+    border-radius: 24px;
+    max-width: 317px;
+    height: 105px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--light-blue);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.botao-azul {
+    background: var(--dark-blue);
+    border: none;
+    color: white;
+    transition: 0.5s;
+
+}
+
+.botao-azul:hover {
+    background-color: var(--dark-blue-hover);
+}
+
+.botao {
+    transition: 0.5s;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+}
+
+.botao:hover {
+    background-color: var(--light-blue-hover);
+}
+
+
+/* ADICIONANDO */
+
+.adicionando {
+    margin-top: 40px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+textarea {
+    width: min(70%, 680px);
+    /* width: 70%;
+    max-width: 680px; */
+    border: none;
+    background: none;
+    padding: 4px 6px;
+    font-size: 32px;
+    line-height: 48px;
+    color: var(--dark-blue);
+    resize: none;
+}
+
+textarea::placeholder {
+    color: var(--dark-blue);
+    font-size: 30px;
+}
+
+.aviso {
+    margin: 7px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+}
+
+.adicionando button {
+    width: 332px;
+    height: 67px;
+}
+
+@media (max-width: 700px) {
+    .adicionando {
+        height: 75vh;
+    }
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .adicionando button{
+        width: 70vw;
+        height: 10vh;
+    }
+}
+
+
+
+.forca{
+    background: red;
+}
+
+
+/*  */
+.desaparece {
+    display: none;
+}
+
+
+footer {
+    position: fixed;
+    width: 200px;
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-inline: 5px;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+
+footer:hover {
+    opacity: 1;
+}
