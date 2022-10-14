@@ -95,7 +95,7 @@ button:hover {
     gap: 12px;
 }
 
-textarea {
+.entrada-palavra {
     width: min(70%, 680px);
     /* width: 70%;
     max-width: 680px; */
@@ -105,12 +105,17 @@ textarea {
     font-size: 32px;
     line-height: 48px;
     color: var(--dark-blue);
-    resize: none;
+
 }
 
-textarea::placeholder {
+.entrada-palavra::placeholder {
     color: var(--dark-blue);
     font-size: 30px;
+    flex-wrap: wrap;
+}
+
+.entrada-palavra:focus {
+    border: none;
 }
 
 .aviso {
@@ -157,14 +162,14 @@ textarea::placeholder {
 
 footer {
     position: fixed;
-    width: 200px;
+    min-width: 200px;
     font-size: 10px;
     font-weight: 400;
     opacity: 0.6;
     transition: opacity 0.2s;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 0;
+    transform: translate(0, -50%);
     text-align: center;
     margin-inline: 5px;
 }

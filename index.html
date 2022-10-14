@@ -23,14 +23,13 @@
     </main>
 
     <section class="jogo desaparece">
-        <canvas class="forca" id="forca" height="860px" width="1200px">
+        <canvas class="forca" id="forca" height="500px" width="1200px">
 
         </canvas>
     </section>
 
     <section class="adicionando desaparece">
-        <textarea name="" id="" cols="30" rows="8" placeholder="Digite uma palavra ou frase"
-            class="texto-entrada"></textarea>
+        <input type="text" name="palavra" maxlength="8" placeholder="Escreva uma palavra" class="entrada-palavra">
         <div>
             <p class="aviso">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +40,7 @@
                 <span>Máx. de 8 letras</span>
             </p>
             <div class="botoes">
-                <button class="botao-azul" onclick="salvarPalavra()">Salvar e começar</button>
+                <button class="botao-azul" id="btn-salvar">Salvar e começar</button>
                 <button class="botao" onclick="telaPrincipal()">Cancelar</button>
             </div>
         </div>
