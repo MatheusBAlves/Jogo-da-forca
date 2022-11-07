@@ -69,7 +69,9 @@ function mudaTela(telaAdiciona, telaRemove) {
 }
 
 document.getElementById("btn-salvar").onclick = () => {
+    mudaTela(telaAdicionando, telaInicial);
     salvarPalavra();
+    
 }
 
 function salvarPalavra() {
@@ -78,12 +80,12 @@ function salvarPalavra() {
     if (palavraNova !== "") {
         palavras.push(palavraNova.toUpperCase());
         alert('A palavra digitada foi salva');
+        palavraNova = "";
         iniciarJogo();
     }
     else {
         alert("Nenhuma palavra foi digitada")
     }
-
 }
 
 function sortearPalavra() {
@@ -136,6 +138,5 @@ function resetar() {
     palavraCorreta = "";
     letrasErradas = [];
     erros = 0;
-    apagaCanvas();
-    telaPrincipal();
+    mudaTela(telaJogo, telaInicial)
 }
