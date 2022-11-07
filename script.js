@@ -123,11 +123,11 @@ function adicionarPalavraIncorreta() {
 
 function verificaEstadoJogo() {
     if (palavraCorreta.length === palavraSecreta.length) {
-        window.alert("Voce venceu o jogo");
+        window.alert("Você venceu o jogo, parabéns");
         resetar();
     }
     if (erros >= 9) {
-        window.alert("Voce perdeu o jogo");
+        window.alert(`Você perdeu o jogo, a palavra era: ${palavraSecreta}`);
         resetar();
     }
 }
