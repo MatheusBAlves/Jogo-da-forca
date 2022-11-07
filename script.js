@@ -8,6 +8,7 @@ let palavras = ["ALURA", "ORACLE", "FORCA", "HTML", "JAVASCRIPT", "SALSICHA", "L
 let tabuleiro = document.getElementById("forca").getContext('2d');
 let palavraSecreta = "";
 let palavraCorreta = "";
+let letrasErradas = [];
 
 let letras = [];
 let erros = 0;
@@ -29,20 +30,34 @@ function iniciarJogo() {
     document.onkeydown = (e) => {
         let letra = e.key.toUpperCase();
 
+
         if (verificarLetra(letra) && palavraSecreta.includes(letra)) {
             for (let i = 0; i < palavraSecreta.length; i++) {
                 if (palavraSecreta[i] === letra) {
-                    adicionarLetraCorreta(i);
-                    escreverLetraCorreta(i);
+                    if (!palavraCorreta.includes(letra)) {
+                        for (let x = i + 1; x < palavraSecreta.length; x++) {
+                            if (palavraSecreta[x] === letra) {
+                                adicionarLetraCorreta(x);
+                                escreverLetraCorreta(x);
+                            }
+                        }
+                        adicionarLetraCorreta(i);
+                        escreverLetraCorreta(i);
+                        verificaEstadoJogo();
+                    }
                 }
 
             }
         }
 
-        else if(verificarLetra(letra) && !palavraSecreta.includes(letra)){
-            adicionarPalavraIncorreta();
-            escreverLetraIncorreta(letra, erros);
-            desenharForca(erros);
+        if (verificarLetra(letra) && !palavraSecreta.includes(letra)) {
+            if (!letrasErradas.includes(letra)) {
+                letrasErradas.push(letra);
+                adicionarPalavraIncorreta();
+                escreverLetraIncorreta(letra, erros);
+                desenharForca(erros);
+                verificaEstadoJogo();
+            }
 
         }
     }
@@ -78,17 +93,21 @@ function sortearPalavra() {
 
 function verificarLetra(key) {
     let estado = false;
-    if (key >= 65 && letras.indexOf(key) || key <= 90 && letras.indexOf(key)) {
+    if (key >= 65 && key <= 90) {
+        if (!letras.includes(key)) {
+            letras.push(key);
+        }
         return estado;
-        letras.push(key)
-
     }
     else {
+        if (!letras.includes(key)) {
+            letras.push(key);
+        }
         estado = true;
-        letras.push(key)
+        // letras.push(key)
 
         console.log(key);
-        console.log(letras, "if true");
+        // console.log(letras, "if true");
         return estado;
     }
 }
@@ -99,4 +118,24 @@ function adicionarLetraCorreta(i) {
 
 function adicionarPalavraIncorreta() {
     erros += 1;
+    console.log(erros);
+}
+
+function verificaEstadoJogo() {
+    if (palavraCorreta.length === palavraSecreta.length) {
+        window.alert("Voce venceu o jogo");
+        resetar();
+    }
+    if (erros >= 9) {
+        window.alert("Voce perdeu o jogo");
+        resetar();
+    }
+}
+
+function resetar() {
+    palavraCorreta = "";
+    letrasErradas = [];
+    erros = 0;
+    apagaCanvas();
+    telaPrincipal();
 }

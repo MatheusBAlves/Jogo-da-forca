@@ -62,43 +62,47 @@ function desenharForca(pontos) {
     tabuleiro.lineCap="round"
     tabuleiro.lineJoin="round"
     tabuleiro.strokeStyle = "#0A3871"
-    if(pontos===0){
+    if(pontos===1){
     //poste lateral
-    tabuleiro.moveTo(700,377)
+    tabuleiro.moveTo(700,360)
     tabuleiro.lineTo(700,75)
     }
-    if(pontos===1){//teto 
+    if(pontos===2){//teto 
     tabuleiro.moveTo(850,75)
     tabuleiro.lineTo(700,75)
     }
-    if(pontos===2){//corda
+    if(pontos===3){//corda
     tabuleiro.moveTo(850,75)
     tabuleiro.lineTo(850,123)
     }
-    if(pontos===3){//para cara
+    if(pontos===4){//para cara
     tabuleiro.moveTo(900,173)
     tabuleiro.arc(850,173,50,0,Math.PI*2)
     }
-    if(pontos===4){//para corpo
+    if(pontos===5){//para corpo
     tabuleiro.moveTo(850,294)
     tabuleiro.lineTo(850,224)
     }
-    if(pontos===5){//para perna esquerda
+    if(pontos===6){//para perna esquerda
     tabuleiro.moveTo(850,294)
     tabuleiro.lineTo(800,340)
     }
-    if(pontos===6){//para perna direita
+    if(pontos===7){//para perna direita
     tabuleiro.moveTo(850,294)
     tabuleiro.lineTo(890,340)
     }
-    if(pontos===7){//para mão izquerda
+    if(pontos===8){//para mão izquerda
     tabuleiro.moveTo(850,249)
     tabuleiro.lineTo(800,294)
     }
-    if(pontos===8){//para mão direita
+    if(pontos===9){//para mão direita
     tabuleiro.moveTo(850,249)
     tabuleiro.lineTo(890,294)
     }
     tabuleiro.stroke()
     tabuleiro.closePath()
+  }
+
+  function apagaCanvas(){
+    tabuleiro.clearRect(0, 0, 1200, 500);
   }
